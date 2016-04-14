@@ -1,6 +1,6 @@
 export default {
   output: {
-    library: 'DesktopUI',
+    library: 'app',
     libraryTarget: 'umd',
     filename: 'ifeng.desktopUI.js'
   },
@@ -35,6 +35,12 @@ export default {
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        query:{
+          presets: ["react","es2015","stage-1"],
+          "plugins": [
+             ["transform-decorators-legacy"],
+          ]
+        },
         loader: 'babel'
       },
       {

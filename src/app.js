@@ -1,7 +1,18 @@
-import { render } from 'react-dom';
-import Desktop from './Desktop';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-render(
- (<Desktop/>),
+console.log(React);
+
+let Hello = React.createClass({
+    render(){
+        return(
+            <div>
+                <h1>Hello,boy!</h1>
+            </div>
+        )
+    }
+});
+ReactDOM.render(
+ (<Hello />),
   document.getElementById('react')
 );
