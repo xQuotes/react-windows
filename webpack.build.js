@@ -36,6 +36,10 @@ export default {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel'
+      },
+      {
+        test: /\.(ico|jpg|png|gif)$/,
+        loader: 'url-loader?limit=18192'
       }
     ]
   },

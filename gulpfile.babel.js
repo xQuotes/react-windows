@@ -15,7 +15,7 @@ import buildConfig from './webpack.build';
 const $ = loadPlugins();
 const paths = {
   src: {
-    build: 'src/Desktop.js'
+    build: 'src/app.js'
   },
   dist: {
     build: './dist',
@@ -35,22 +35,22 @@ const banner = [
 gulp.task('build:pack', () => {
   return gulp.src(paths.src.build)
     .pipe(webpackStream(buildConfig))
-    .pipe($.replace('__VERSION__', pkg.version))
-    .pipe($.header(banner, {pkg: pkg}))
+//    .pipe($.replace('__VERSION__', pkg.version))
+//    .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest(paths.dist.build))
-    .pipe($.uglify())
-    .pipe($.rename({suffix: '.min'}))
-    .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest(paths.dist.build))
-    .pipe($.size({showFiles: true, title: 'minified'}))
-    .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}));
+//    .pipe($.uglify())
+//    .pipe($.rename({suffix: '.min'}))
+//    .pipe($.header(banner, {pkg: pkg}))
+//    .pipe(gulp.dest(paths.dist.build))
+//    .pipe($.size({showFiles: true, title: 'minified'}))
+//    .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}));
 });
 
 
 gulp.task('build:jsx', () => {
   return gulp.src(['src/**/*.js', '!src/__tests__/*.js'])
     .pipe($.if((file) => {
-      return file.path.indexOf('Desktop.js') > -1;
+      return file.path.indexOf('app.js') > -1;
     }, $.replace('__VERSION__', pkg.version)))
     .pipe($.babel())
     .pipe(gulp.dest(paths.dist.lib));
@@ -70,4 +70,4 @@ gulp.task('build', (cb) => {
     cb);
 });
 
-gulp.task('default', ['build:jsx']);
+gulp.task('default', ['build']);
