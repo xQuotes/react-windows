@@ -11,7 +11,7 @@ config.entry.unshift(
 var compiler = webpack(config);
 
 var server = new webpackDevServer(compiler, {
-  contentBase: "",
+  contentBase: "dist",
   hot: true,
   inline: true,
   historyApiFallback: true,

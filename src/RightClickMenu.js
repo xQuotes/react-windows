@@ -23,6 +23,10 @@ export default class Desktop extends React.Component {
           <div className={classNames("menu-li-left")}></div>
           <div className={classNames("menu-li-right")}>重新加载</div>
         </div>
+        <div className={classNames("menu-li")}>
+          <div className={classNames("menu-li-left")}></div>
+          <div className={classNames("menu-li-right")}>重新排列图标</div>
+        </div>
         <div className={classNames("menu-line")}>
           <div className={classNames("menu-line-left")}></div>
           <div className={classNames("menu-line-right")}>

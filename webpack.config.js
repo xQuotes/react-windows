@@ -1,7 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var WebpackMd5Hash = require('webpack-md5-hash');
-var TransferWebpackPlugin = require('transfer-webpack-plugin')
+var TransferWebpackPlugin = require('transfer-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -36,8 +37,8 @@ module.exports = {
                 loader: 'style!css'
             },
             {
-                test: /\.(jpg|png|gif)$/,
-                loader: 'url-loader?limit=18192'
+                test: /\.(jpg|png|gif|ico)$/,
+                loader: 'url-loader?limit=8192'
             },
             { 
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -56,6 +57,10 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin(),
       new  WebpackMd5Hash(),
       new webpack.NoErrorsPlugin(),
+      new HtmlWebpackPlugin({
+        title: 'Ifeng DesktopUI',
+        template: 'index.ejs'
+      })
       // new TransferWebpackPlugin([
       //   {from: 'JSON'}
       // ], path.resolve(__dirname,'../../../'))

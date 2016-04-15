@@ -6,11 +6,7 @@ import ImgIcon from './images/Img';
 import deskIconStyle from './style/DeskIcon.less';
 
 var deskIconImgDivStyle = {
-  backgroundImage: 'url(' + ImgIcon.DesktopIcon + ')',
-  backgroundPosition: 'center',
-  backgroundSize: '100%',
-  backgroundRepeat: 'no-repeat',
-  backgroundColor: 'initial'
+  backgroundImage: 'url(' + ImgIcon.DesktopIcon + ')'
 }
 
 export default class DeskIcon extends React.Component {
@@ -22,7 +18,7 @@ export default class DeskIcon extends React.Component {
             className={classNames("desk-icon-bg")}>
           </div>
           <div
-            className={classNames("desk-icon-img")}
+            className={classNames("desk-icon-img icon-img")}
             style={deskIconImgDivStyle}>
           </div>
           <div

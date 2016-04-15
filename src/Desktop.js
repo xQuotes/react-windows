@@ -8,22 +8,18 @@ import Footer from './Layout/Footer';
 
 import RightClickMenu from './RightClickMenu';
 import DeskIcon from './DeskIcon';
+import StartMenu from './StartMenu';
+import Window from './Window';
+import Dos from './Dos';
 
 import desktopStyle from './style/desktop.less';
-
-var deskDivStyle = {
-  backgroundImage: 'url(' + ImgIcon.BggroudImg + ')',
-  backgroundPosition: 'center',
-  backgroundSize: '100%',
-  backgroundRepeat: 'no-repeat'
-}
 
 export default class Desktop extends React.Component {
   render() {
     return (
       <div
-        className={classNames("desktop")}
-        style={deskDivStyle}>
+        className={classNames("desktop icon-img")}
+        style={Styles.deskDivStyle}>
 	     <Header />
        <div className={classNames("main")}>
         <DeskIcon />
@@ -32,5 +28,11 @@ export default class Desktop extends React.Component {
        <Footer />
       </div>
       )
+  }
+}
+
+var Styles = {
+  deskDivStyle: {
+    backgroundImage: 'url(' + ImgIcon.BggroudImg + ')'
   }
 }

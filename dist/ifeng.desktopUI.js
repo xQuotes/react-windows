@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8f8b144f10f7d13ae2a7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "818c66304736c36ab724"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -20332,7 +20332,27 @@
 
 	var _Desktop2 = _interopRequireDefault(_Desktop);
 
-	var _common = __webpack_require__(185);
+	var _RightClickMenu = __webpack_require__(181);
+
+	var _RightClickMenu2 = _interopRequireDefault(_RightClickMenu);
+
+	var _DeskIcon = __webpack_require__(184);
+
+	var _DeskIcon2 = _interopRequireDefault(_DeskIcon);
+
+	var _StartMenu = __webpack_require__(187);
+
+	var _StartMenu2 = _interopRequireDefault(_StartMenu);
+
+	var _Window = __webpack_require__(190);
+
+	var _Window2 = _interopRequireDefault(_Window);
+
+	var _Dos = __webpack_require__(193);
+
+	var _Dos2 = _interopRequireDefault(_Dos);
+
+	var _common = __webpack_require__(198);
 
 	var _common2 = _interopRequireDefault(_common);
 
@@ -20345,7 +20365,12 @@
 	var IfengDesk = {
 	  VERSION: '__VERSION__',
 
-	  Desktop: _Desktop2.default
+	  Desktop: _Desktop2.default,
+	  RightClickMenu: _RightClickMenu2.default,
+	  DeskIcon: _DeskIcon2.default,
+	  StartMenu: _StartMenu2.default,
+	  Window: _Window2.default,
+	  Dos: _Dos2.default
 	};
 
 	exports.default = IfengDesk;
@@ -20375,23 +20400,35 @@
 
 	var _Img2 = _interopRequireDefault(_Img);
 
-	var _Header = __webpack_require__(169);
+	var _Header = __webpack_require__(173);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Footer = __webpack_require__(174);
+	var _Footer = __webpack_require__(178);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _RightClickMenu = __webpack_require__(177);
+	var _RightClickMenu = __webpack_require__(181);
 
 	var _RightClickMenu2 = _interopRequireDefault(_RightClickMenu);
 
-	var _DeskIcon = __webpack_require__(180);
+	var _DeskIcon = __webpack_require__(184);
 
 	var _DeskIcon2 = _interopRequireDefault(_DeskIcon);
 
-	var _desktop = __webpack_require__(183);
+	var _StartMenu = __webpack_require__(187);
+
+	var _StartMenu2 = _interopRequireDefault(_StartMenu);
+
+	var _Window = __webpack_require__(190);
+
+	var _Window2 = _interopRequireDefault(_Window);
+
+	var _Dos = __webpack_require__(193);
+
+	var _Dos2 = _interopRequireDefault(_Dos);
+
+	var _desktop = __webpack_require__(196);
 
 	var _desktop2 = _interopRequireDefault(_desktop);
 
@@ -20402,13 +20439,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var deskDivStyle = {
-	  backgroundImage: 'url(' + _Img2.default.BggroudImg + ')',
-	  backgroundPosition: 'center',
-	  backgroundSize: '100%',
-	  backgroundRepeat: 'no-repeat'
-	};
 
 	var Desktop = function (_React$Component) {
 	  _inherits(Desktop, _React$Component);
@@ -20425,8 +20455,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        {
-	          className: (0, _classnames2.default)("desktop"),
-	          style: deskDivStyle },
+	          className: (0, _classnames2.default)("desktop icon-img"),
+	          style: Styles.deskDivStyle },
 	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
 	          'div',
@@ -20443,6 +20473,13 @@
 	}(_react2.default.Component);
 
 	exports.default = Desktop;
+
+
+	var Styles = {
+	  deskDivStyle: {
+	    backgroundImage: 'url(' + _Img2.default.BggroudImg + ')'
+	  }
+	};
 
 /***/ },
 /* 164 */
@@ -20520,12 +20557,32 @@
 
 	var _winstart2 = _interopRequireDefault(_winstart);
 
+	var _setting = __webpack_require__(169);
+
+	var _setting2 = _interopRequireDefault(_setting);
+
+	var _dos = __webpack_require__(170);
+
+	var _dos2 = _interopRequireDefault(_dos);
+
+	var _about = __webpack_require__(171);
+
+	var _about2 = _interopRequireDefault(_about);
+
+	var _avatar = __webpack_require__(172);
+
+	var _avatar2 = _interopRequireDefault(_avatar);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
 	  DesktopIcon: _desktop2.default,
 	  BggroudImg: _win2.default,
-	  WinstartIcon: _winstart2.default
+	  WinstartIcon: _winstart2.default,
+	  SettingIcon: _setting2.default,
+	  DosIcon: _dos2.default,
+	  AboutIcon: _about2.default,
+	  AvatarIcon: _avatar2.default
 	};
 
 /***/ },
@@ -20550,6 +20607,30 @@
 /* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "1b95a963ad98065d459e40a860149c11.ico";
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "dedf478dc323874baa7eaf90492ce5b0.ico";
+
+/***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "75adb327187d501cbecfb8e42f93ba78.ico";
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0ae73bfe6710d6e2144872fb852e2f14.ico";
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -20567,7 +20648,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _header = __webpack_require__(170);
+	var _header = __webpack_require__(174);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -20601,23 +20682,23 @@
 	exports.default = Header;
 
 /***/ },
-/* 170 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(171);
+	var content = __webpack_require__(175);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
+	var update = __webpack_require__(177)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(171, function() {
-				var newContent = __webpack_require__(171);
+			module.hot.accept(175, function() {
+				var newContent = __webpack_require__(175);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -20627,10 +20708,10 @@
 	}
 
 /***/ },
-/* 171 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(172)();
+	exports = module.exports = __webpack_require__(176)();
 	// imports
 
 
@@ -20641,7 +20722,7 @@
 
 
 /***/ },
-/* 172 */
+/* 176 */
 /***/ function(module, exports) {
 
 	/*
@@ -20697,7 +20778,7 @@
 
 
 /***/ },
-/* 173 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -20949,7 +21030,7 @@
 
 
 /***/ },
-/* 174 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20973,7 +21054,7 @@
 
 	var _Img2 = _interopRequireDefault(_Img);
 
-	var _footer = __webpack_require__(175);
+	var _footer = __webpack_require__(179);
 
 	var _footer2 = _interopRequireDefault(_footer);
 
@@ -21024,23 +21105,23 @@
 	exports.default = Footer;
 
 /***/ },
-/* 175 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(176);
+	var content = __webpack_require__(180);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
+	var update = __webpack_require__(177)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(176, function() {
-				var newContent = __webpack_require__(176);
+			module.hot.accept(180, function() {
+				var newContent = __webpack_require__(180);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -21050,10 +21131,10 @@
 	}
 
 /***/ },
-/* 176 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(172)();
+	exports = module.exports = __webpack_require__(176)();
 	// imports
 
 
@@ -21064,7 +21145,7 @@
 
 
 /***/ },
-/* 177 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21088,7 +21169,7 @@
 
 	var _Img2 = _interopRequireDefault(_Img);
 
-	var _rightClickMenu = __webpack_require__(178);
+	var _rightClickMenu = __webpack_require__(182);
 
 	var _rightClickMenu2 = _interopRequireDefault(_rightClickMenu);
 
@@ -21151,6 +21232,16 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
+	            { className: (0, _classnames2.default)("menu-li") },
+	            _react2.default.createElement('div', { className: (0, _classnames2.default)("menu-li-left") }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("menu-li-right") },
+	              '重新排列图标'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
 	            { className: (0, _classnames2.default)("menu-line") },
 	            _react2.default.createElement('div', { className: (0, _classnames2.default)("menu-line-left") }),
 	            _react2.default.createElement(
@@ -21200,23 +21291,23 @@
 	exports.default = Desktop;
 
 /***/ },
-/* 178 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(179);
+	var content = __webpack_require__(183);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
+	var update = __webpack_require__(177)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(179, function() {
-				var newContent = __webpack_require__(179);
+			module.hot.accept(183, function() {
+				var newContent = __webpack_require__(183);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -21226,21 +21317,21 @@
 	}
 
 /***/ },
-/* 179 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(172)();
+	exports = module.exports = __webpack_require__(176)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".right-click-menu {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  background-color: #F0F0F0;\n  width: 210px;\n  /*height: 250px;*/\n  border: 1px solid #979797;\n  padding: 2px;\n}\n.right-click-menu .menu-li {\n  height: 22px;\n  font-size: 14px;\n  display: flex;\n  border: 1px solid #F0F0F0;\n}\n.right-click-menu .menu-li:hover {\n  background-color: #ECF0F6;\n  border: 1px solid #AECFF7;\n}\n.right-click-menu .menu-li-left {\n  width: 28px;\n  padding: 0;\n}\n.right-click-menu .menu-li-right {\n  flex: 1;\n  border-left: 1px solid #E3E3E3;\n  line-height: 22px;\n  padding: 0 10px;\n}\n.right-click-menu .menu-line {\n  display: flex;\n}\n.right-click-menu .menu-line-left {\n  width: 28px;\n  padding: 5px 0;\n}\n.right-click-menu .menu-line-right {\n  flex: 1;\n  padding: 4px 0;\n  border-left: 1px solid #E3E3E3;\n}\n.right-click-menu .menu-line-right .hr {\n  border: 0;\n  border-top: 1px solid #E3E3E3;\n}\n", ""]);
+	exports.push([module.id, ".right-click-menu {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  background-color: #F0F0F0;\n  width: 210px;\n  /*height: 250px;*/\n  border: 1px solid #979797;\n  padding: 2px;\n}\n.right-click-menu .menu-li {\n  height: 22px;\n  font-size: 14px;\n  display: flex;\n  border: 1px solid #F0F0F0;\n  cursor: pointer;\n}\n.right-click-menu .menu-li:hover {\n  background-color: #ECF0F6;\n  border: 1px solid #AECFF7;\n}\n.right-click-menu .menu-li-left {\n  width: 28px;\n  padding: 0;\n}\n.right-click-menu .menu-li-right {\n  flex: 1;\n  border-left: 1px solid #E3E3E3;\n  line-height: 22px;\n  padding: 0 10px;\n}\n.right-click-menu .menu-line {\n  display: flex;\n}\n.right-click-menu .menu-line-left {\n  width: 28px;\n  padding: 5px 0;\n}\n.right-click-menu .menu-line-right {\n  flex: 1;\n  padding: 4px 0;\n  border-left: 1px solid #E3E3E3;\n}\n.right-click-menu .menu-line-right .hr {\n  border: 0;\n  border-top: 1px solid #E3E3E3;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 180 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21264,7 +21355,7 @@
 
 	var _Img2 = _interopRequireDefault(_Img);
 
-	var _DeskIcon = __webpack_require__(181);
+	var _DeskIcon = __webpack_require__(185);
 
 	var _DeskIcon2 = _interopRequireDefault(_DeskIcon);
 
@@ -21277,11 +21368,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var deskIconImgDivStyle = {
-	  backgroundImage: 'url(' + _Img2.default.DesktopIcon + ')',
-	  backgroundPosition: 'center',
-	  backgroundSize: '100%',
-	  backgroundRepeat: 'no-repeat',
-	  backgroundColor: 'initial'
+	  backgroundImage: 'url(' + _Img2.default.DesktopIcon + ')'
 	};
 
 	var DeskIcon = function (_React$Component) {
@@ -21303,7 +21390,7 @@
 	        _react2.default.createElement('div', {
 	          className: (0, _classnames2.default)("desk-icon-bg") }),
 	        _react2.default.createElement('div', {
-	          className: (0, _classnames2.default)("desk-icon-img"),
+	          className: (0, _classnames2.default)("desk-icon-img icon-img"),
 	          style: deskIconImgDivStyle }),
 	        _react2.default.createElement(
 	          'div',
@@ -21321,86 +21408,6 @@
 	exports.default = DeskIcon;
 
 /***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(182);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(true) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept(182, function() {
-				var newContent = __webpack_require__(182);
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(172)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".desk-icon {\n  position: fixed;\n  left: 30px;\n  top: 40px;\n  margin: 2px 10px;\n}\n.desk-icon-bg {\n  position: absolute;\n  background-color: #BBBBBB;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  opacity: 0;\n}\n.desk-icon-bg:hover {\n  opacity: 0.3;\n}\n.desk-icon-img {\n  width: 42px;\n  height: 42px;\n  /*border-radius: 21px;*/\n  background-color: #1FB6EB;\n}\n.desk-icon-text {\n  width: 42px;\n  color: #fff;\n  text-align: center;\n  padding: 5px 0px;\n  font-size: 14px;\n  overflow: hidden;\n  max-height: 32px;\n  text-overflow: ellipsis;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertial;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(184);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(true) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept(184, function() {
-				var newContent = __webpack_require__(184);
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(172)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".desktop {\n  width: 100%;\n  height: 100%;\n  background-color: #f2f2f2;\n  display: flex;\n  flex-direction: column;\n}\n.main {\n  flex: 1;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
 /* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -21410,7 +21417,7 @@
 	var content = __webpack_require__(186);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
+	var update = __webpack_require__(177)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(true) {
@@ -21430,12 +21437,561 @@
 /* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(172)();
+	exports = module.exports = __webpack_require__(176)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\nhtml,\nbody {\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\nbody > div,\n#react {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+	exports.push([module.id, ".desk-icon {\n  position: fixed;\n  left: 30px;\n  top: 40px;\n  margin: 2px 10px;\n  cursor: pointer;\n}\n.desk-icon-bg {\n  position: absolute;\n  background-color: #BBBBBB;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  opacity: 0;\n}\n.desk-icon-bg:hover {\n  opacity: 0.3;\n}\n.desk-icon-img {\n  width: 42px;\n  height: 42px;\n  /*border-radius: 21px;*/\n  background-color: #1FB6EB;\n}\n.desk-icon-text {\n  width: 42px;\n  color: #fff;\n  text-align: center;\n  padding: 5px 0px;\n  font-size: 14px;\n  overflow: hidden;\n  max-height: 32px;\n  text-overflow: ellipsis;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertial;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(164);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Img = __webpack_require__(165);
+
+	var _Img2 = _interopRequireDefault(_Img);
+
+	var _startMenu = __webpack_require__(188);
+
+	var _startMenu2 = _interopRequireDefault(_startMenu);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var StartMenu = function (_React$Component) {
+	  _inherits(StartMenu, _React$Component);
+
+	  function StartMenu() {
+	    _classCallCheck(this, StartMenu);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(StartMenu).apply(this, arguments));
+	  }
+
+	  _createClass(StartMenu, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: (0, _classnames2.default)('start-menu') },
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _classnames2.default)('start-menu-left') },
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-li start-menu-about') },
+	            _react2.default.createElement('div', { className: (0, _classnames2.default)('about-icon icon-img'),
+	              style: Styles.aboutIconSpanStyle }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)('about-text icon-text') },
+	              '关于本系统'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-li start-menu-setting') },
+	            _react2.default.createElement('div', { className: (0, _classnames2.default)('setting-icon icon-img'),
+	              style: Styles.settingIconSpanStyle }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)('setting-text icon-text') },
+	              '系统设置'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-li start-menu-dos') },
+	            _react2.default.createElement('div', { className: (0, _classnames2.default)('dos-icon icon-img'),
+	              style: Styles.dosIconSpanStyle }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)('dos-text icon-text') },
+	              '启动命令行'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-hr-div') },
+	            _react2.default.createElement('div', { className: (0, _classnames2.default)('start-hr') })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-li start-menu-close') },
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)('close-text') },
+	              '关闭网页'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _classnames2.default)('start-menu-right') },
+	          _react2.default.createElement('div', { className: (0, _classnames2.default)('user-avatar avatar-img'),
+	            style: Styles.userAvatarStyle }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-user user-name') },
+	            '用户名'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-user user-setting') },
+	            '设置'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-hr-div') },
+	            _react2.default.createElement('div', { className: (0, _classnames2.default)('start-hr') })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)('start-menu-user user-logout') },
+	            '注销登录'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return StartMenu;
+	}(_react2.default.Component);
+
+	exports.default = StartMenu;
+
+
+	var Styles = {
+	  aboutIconSpanStyle: {
+	    backgroundImage: 'url(' + _Img2.default.AboutIcon + ')'
+	  },
+	  settingIconSpanStyle: {
+	    backgroundImage: 'url(' + _Img2.default.SettingIcon + ')'
+	  },
+	  dosIconSpanStyle: {
+	    backgroundImage: 'url(' + _Img2.default.DosIcon + ')'
+	  },
+
+	  userAvatarStyle: {
+	    backgroundImage: 'url(' + _Img2.default.AvatarIcon + ')'
+	  }
+	};
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(189);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(177)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(189, function() {
+				var newContent = __webpack_require__(189);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(176)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".start-menu {\n  position: fixed;\n  display: flex;\n  left: 0;\n  bottom: 40px;\n  border: 1px solid #3A434D;\n  border-radius: 10px;\n  width: 400px;\n  /*height: 500px;*/\n  background-color: #A0B8D3;\n  padding: 10px;\n}\n.start-menu-left {\n  width: 250px;\n  border-radius: 5px;\n  background-color: #E3E3E3;\n  padding: 5px;\n}\n.start-menu-li {\n  display: flex;\n  height: 40px;\n  line-height: 38px;\n  font-size: 14px;\n  border: 1px solid #E3E3E3;\n  cursor: pointer;\n}\n.start-menu-li:hover {\n  background-color: #CAE1FD;\n  border: 1px solid #7DA2CE;\n  border-radius: 3px;\n}\n.start-menu-li .icon-img {\n  width: 38px;\n  height: 38px;\n}\n.start-menu-li .icon-text {\n  flex: 1;\n  margin-left: 10px;\n}\n.start-menu-li .close-text {\n  margin-left: 10px;\n}\n.start-menu-right {\n  flex: 1;\n  padding: 10px;\n  color: #fff;\n  font-size: 14px;\n}\n.start-menu-right .user-avatar {\n  width: 55px;\n  height: 55px;\n  border-radius: 5px;\n  margin: 10px auto;\n  background-color: #eee;\n}\n.start-menu-right .start-menu-user {\n  height: 35px;\n  border: 1px solid #A0B8D3;\n  line-height: 33px;\n  padding: 0 10px;\n  cursor: pointer;\n}\n.start-menu-right .start-menu-user:hover {\n  border: 1px solid #888;\n  border-radius: 3px;\n  background-color: #E3E3E3;\n  color: #000;\n}\n.start-hr-div {\n  margin: 10px 0;\n}\n.start-hr-div .start-hr {\n  border-top: 1px solid #fff;\n}\n.start-menu-left .start-hr {\n  border-top: 1px solid #fff;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(164);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Img = __webpack_require__(165);
+
+	var _Img2 = _interopRequireDefault(_Img);
+
+	var _window = __webpack_require__(191);
+
+	var _window2 = _interopRequireDefault(_window);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Window = function (_React$Component) {
+	  _inherits(Window, _React$Component);
+
+	  function Window() {
+	    _classCallCheck(this, Window);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Window).apply(this, arguments));
+	  }
+
+	  _createClass(Window, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        {
+	          className: (0, _classnames2.default)("window") },
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _classnames2.default)("w-header") },
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)("w-header-title") },
+	            'Ifeng DesktopUI'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)("w-header-action") },
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("w-header-min") },
+	              '-'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("w-header-max") },
+	              '口'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("w-header-close") },
+	              'x'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement('div', { className: (0, _classnames2.default)("w-container") })
+	      );
+	    }
+	  }]);
+
+	  return Window;
+	}(_react2.default.Component);
+
+	exports.default = Window;
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(192);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(177)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(192, function() {
+				var newContent = __webpack_require__(192);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(176)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".window {\n  position: fixed;\n  border: 8px solid #C09770;\n  border-top: 1px solid #C09770;\n  width: 600px;\n  height: 400px;\n  left: 50%;\n  top: 50%;\n  margin-left: -300px;\n  margin-top: -200px;\n}\n.w-header {\n  height: 30px;\n  background-color: #C09770;\n}\n.w-header-title {\n  text-align: center;\n  color: #fff;\n  line-height: 28px;\n}\n.w-header-action {\n  position: absolute;\n  display: flex;\n  right: 0;\n  top: 0;\n}\n.w-header-close {\n  font-size: 25px;\n  text-align: center;\n  width: 30px;\n  background-color: #e04343;\n  opacity: 0.8;\n  color: #fff;\n  line-height: 24px;\n  margin-top: 2px;\n  cursor: pointer;\n}\n.w-header-max,\n.w-header-min {\n  font-size: 18px;\n  width: 20px;\n  line-height: 24px;\n  margin-top: 2px;\n  margin-right: 2px;\n  text-align: center;\n  color: #fff;\n  cursor: pointer;\n}\n.w-header-max:hover,\n.w-header-min:hover {\n  background-color: #3665B3;\n}\n.w-header-min {\n  font-size: 25px;\n  margin-right: 2px;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 193 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(164);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Img = __webpack_require__(165);
+
+	var _Img2 = _interopRequireDefault(_Img);
+
+	var _window = __webpack_require__(191);
+
+	var _window2 = _interopRequireDefault(_window);
+
+	var _dos = __webpack_require__(194);
+
+	var _dos2 = _interopRequireDefault(_dos);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Dos = function (_React$Component) {
+	  _inherits(Dos, _React$Component);
+
+	  function Dos() {
+	    _classCallCheck(this, Dos);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Dos).apply(this, arguments));
+	  }
+
+	  _createClass(Dos, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        {
+	          className: (0, _classnames2.default)("window") },
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _classnames2.default)("w-header") },
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)("w-header-title") },
+	            'Ifeng DesktopUI'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: (0, _classnames2.default)("w-header-action") },
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("w-header-min") },
+	              '-'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("w-header-max") },
+	              '口'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: (0, _classnames2.default)("w-header-close") },
+	              'x'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: (0, _classnames2.default)("w-container dos-container") },
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'localhost:~ root$'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Dos;
+	}(_react2.default.Component);
+
+	exports.default = Dos;
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(195);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(177)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(195, function() {
+				var newContent = __webpack_require__(195);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(176)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".dos-container {\n  width: 100%;\n  height: 361px;\n  background-color: #000;\n  padding: 3px;\n  color: #fff;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(197);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(177)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(197, function() {
+				var newContent = __webpack_require__(197);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(176)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".desktop {\n  width: 100%;\n  height: 100%;\n  background-color: #f2f2f2;\n  display: flex;\n  flex-direction: column;\n}\n.main {\n  flex: 1;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(199);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(177)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(199, function() {
+				var newContent = __webpack_require__(199);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(176)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\nhtml,\nbody {\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\nbody > div,\n#react {\n  width: 100%;\n  height: 100%;\n}\n.bg-img,\n.icon-img,\n.avatar-img {\n  background-position: center;\n  background-size: 100%;\n  background-repeat: no-repeat;\n  background-color: initial;\n}\n", ""]);
 
 	// exports
 

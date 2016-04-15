@@ -4,8 +4,9 @@ import classNames from 'classnames';
 import ImgIcon from './images/Img';
 
 import windowStyle from './style/window.less';
+import dosStyle from './style/dos.less';
 
-export default class Window extends React.Component {
+export default class Dos extends React.Component {
   render() {
     return (
       <div
@@ -20,7 +21,10 @@ export default class Window extends React.Component {
             <div className={classNames("w-header-close")}>x</div>
           </div>
         </div>
-       <div className={classNames("w-container")}>
+       <div className={classNames("w-container dos-container")}>
+        <div>
+        localhost:~ root$
+        </div>
        </div>
       </div>
       )
