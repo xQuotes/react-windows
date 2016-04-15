@@ -37,7 +37,7 @@ export default {
         exclude: /node_modules/,
         query:{
           presets: ["react","es2015","stage-1"],
-          "plugins": [
+          plugins: [
              ["transform-decorators-legacy"],
           ]
         },

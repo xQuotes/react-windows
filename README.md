@@ -8,4 +8,25 @@
 列表
 表单
 
+## `metro` 样式的前端桌面框架
+
+### 需要实现的功能
+
+拖拽
+弹窗
+
+
+参考：
+
+- [amazeui react](http://amazeui.org/react/)
+- [BootMetro](http://www.marcellop.com/)
+- [material-ui](http://www.material-ui.com/)
+
+- [WebWindowSystem](http://www.pengyaou.com/LegendsZ/eg/WebWindowSystem/)
+- [desktop](http://desktop.sonspring.com/)
+
+---
+
+编译 `node server`
+
 

@@ -1,0 +1,49 @@
+.right-click-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #F0F0F0;
+  width: 210px;
+  /*height: 250px;*/
+  border: 1px solid #979797;
+  padding: 2px;
+  .menu {
+    
+  }
+  .menu-li {
+    height: 22px;
+    font-size: 14px;
+    display: flex;
+    border: 1px solid #F0F0F0;
+    &:hover {
+      background-color: #ECF0F6;
+      border: 1px solid #AECFF7;
+    }
+  }
+  .menu-li-left {
+    width: 28px;
+    padding: 0;
+  }
+  .menu-li-right {
+    flex: 1;
+    border-left: 1px solid #E3E3E3;
+    line-height: 22px;
+    padding: 0 10px;
+  }
+  .menu-line {
+    display: flex;
+  }
+  .menu-line-left {
+    width: 28px;
+    padding: 5px 0;
+  }
+  .menu-line-right {
+    flex: 1;
+    padding: 4px 0;
+    border-left: 1px solid #E3E3E3;
+    .hr {
+      border: 0;
+      border-top: 1px solid #E3E3E3;
+    }
+  }
+}

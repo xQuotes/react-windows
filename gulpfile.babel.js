@@ -35,15 +35,15 @@ const banner = [
 gulp.task('build:pack', () => {
   return gulp.src(paths.src.build)
     .pipe(webpackStream(buildConfig))
-//    .pipe($.replace('__VERSION__', pkg.version))
-//    .pipe($.header(banner, {pkg: pkg}))
+   .pipe($.replace('__VERSION__', pkg.version))
+   .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest(paths.dist.build))
-//    .pipe($.uglify())
-//    .pipe($.rename({suffix: '.min'}))
-//    .pipe($.header(banner, {pkg: pkg}))
-//    .pipe(gulp.dest(paths.dist.build))
-//    .pipe($.size({showFiles: true, title: 'minified'}))
-//    .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}));
+   .pipe($.uglify())
+   .pipe($.rename({suffix: '.min'}))
+   .pipe($.header(banner, {pkg: pkg}))
+   .pipe(gulp.dest(paths.dist.build))
+   .pipe($.size({showFiles: true, title: 'minified'}))
+   .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}));
 });
 
 

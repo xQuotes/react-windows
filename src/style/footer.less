@@ -1,0 +1,39 @@
+.footer {
+  /*position: fixed;*/
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  background-color: #A7C0DC;
+  height: 40px;
+}
+
+.footer-left {
+  margin: 4px 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #1FB6EB;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  cursor: pointer;
+
+  &:hover {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  }
+}
+
+.footer-center {
+  flex: 1;
+}
+
+.footer-right {
+  width: 10px;
+  border-left: 2px solid #A4B1C1;
+  background-color: #8194AA;
+  &:hover {
+    background-color: #93A4B6;
+  }
+}
