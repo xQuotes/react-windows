@@ -5,6 +5,7 @@ import SettingIcon from './icon/setting.ico';
 import DosIcon from './icon/dos.ico';
 import AboutIcon from './icon/about.ico';
 import AvatarIcon from './icon/avatar.ico';
+import ChromeIcon from './icon/chrome.png';
 
 export default {
   DesktopIcon,
@@ -13,5 +14,6 @@ export default {
   SettingIcon,
   DosIcon,
   AboutIcon,
-  AvatarIcon
+  AvatarIcon,
+  ChromeIcon
 }

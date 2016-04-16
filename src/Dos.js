@@ -21,7 +21,7 @@ export default class Dos extends React.Component {
             <div className={classNames("w-header-close")}>x</div>
           </div>
         </div>
-       <div className={classNames("w-container dos-container")}>
+       <div className={classNames("dos-container")}>
         <div>
         localhost:~ root$
         </div>

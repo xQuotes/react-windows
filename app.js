@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Basejs from './src/Base';
-import IfengDesk from './src/IfengDesk';
+import Desktop from './src/Desktop';
 
 ReactDOM.render(
-  (<IfengDesk.Desktop />),
+  (<Desktop />),
   document.getElementById('react')
 );

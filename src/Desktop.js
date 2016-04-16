@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import update from 'react/lib/update';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
@@ -7,17 +7,19 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 import ImgIcon from './images/Img';
 
-import Header from './Layout/Header';
-import Footer from './Layout/Footer';
+import Header from './Header';
+import Footer from './Footer';
 
 import RightClickMenu, {MenuWidth, MenuHeight} from './RightClickMenu';
 import DeskIcon from './DeskIcon';
-import StartMenu from './StartMenu';
 import Window from './Window';
 import Dos from './Dos';
 
 import desktopStyle from './style/desktop.less';
 
+import deskIconDatas from './datas/deskIcon';
+
+import commonStyle from './style/common.less';
 
 const boxTarget = {
   drop(props, monitor, component) {
@@ -25,7 +27,7 @@ const boxTarget = {
     const delta = monitor.getDifferenceFromInitialOffset();
     const left = Math.round(item.left + delta.x);
     const top = Math.round(item.top + delta.y);
-
+    
     component.moveBox(item.id, left, top);
   }
 };
@@ -38,16 +40,15 @@ export default class Desktop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      //窗口
       windowShowStyle: {
         opacity: 0
       },
-      boxes: {
-        'a': { top: 20, left: 80, title: '桌面' },
-        'b': { top: 180, left: 20, title: '垃圾桶' }
-      }
+      //图标
+      boxes: deskIconDatas
     }
   }
-
+  //移动图标
   moveBox(id, left, top) {
     this.setState(update(this.state, {
       boxes: {
@@ -60,6 +61,7 @@ export default class Desktop extends React.Component {
       }
     }));
   }
+  //右键
   rightClick(event) {
     if (!event) event = window.event;
     if (event.button == 2) {
@@ -79,6 +81,7 @@ export default class Desktop extends React.Component {
       });
     }
   }
+  //右键
   handleClick(event) {
     // 隐藏右键菜单
     this.setState({
@@ -89,28 +92,30 @@ export default class Desktop extends React.Component {
   }
   render() {
     const { connectDropTarget } = this.props;
-    const { boxes} = this.state;
-    return (
+    const { boxes } = this.state;
+    return connectDropTarget(
       <div
         className={classNames("desktop bg-img")}
-        style={Styles.deskDivStyle}
-        onMouseUp={this.rightClick.bind(this)}
-        onClick={this.handleClick.bind(this)}>
+        style={{
+          backgroundImage: 'url(' + ImgIcon.BggroudImg + ')'
+        }}>
 	     <Header />
        <div
         className={classNames("main")}
-        ref="deskMain">
+        ref="deskMain"
+        onMouseUp={this.rightClick.bind(this)}
+        onClick={this.handleClick.bind(this)}>
 
         {Object.keys(boxes).map(key => {
-          const { left, top, title } = boxes[key];
+          const { left, top, icon, title } = boxes[key];
           return (
             <DeskIcon key={key}
                  id={key}
                  left={left}
                  top={top}
                  title={title}
+                 icon={icon}
                  hideSourceOnDrag={true}>
-              
             </DeskIcon>
           );
         })}
@@ -120,11 +125,5 @@ export default class Desktop extends React.Component {
        <Footer />
       </div>
       )
-  }
-}
-
-var Styles = {
-  deskDivStyle: {
-    backgroundImage: 'url(' + ImgIcon.BggroudImg + ')'
   }
 }

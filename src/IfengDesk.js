@@ -7,18 +7,23 @@ if (!React) {
 }
 
 import Desktop from './Desktop';
+
+import Header from './Header';
+import Footer from './Footer';
 import RightClickMenu from './RightClickMenu';
 import DeskIcon from './DeskIcon';
 import StartMenu from './StartMenu';
 import Window from './Window';
 import Dos from './Dos';
 
-import commonStyle from './style/common.less';
-
 const IfengDesk = {
   VERSION: '__VERSION__',
-
+  
   Desktop: Desktop,
+
+  Header: Header,
+  Footer: Footer,
+  
   RightClickMenu: RightClickMenu,
   DeskIcon: DeskIcon,
   StartMenu: StartMenu,

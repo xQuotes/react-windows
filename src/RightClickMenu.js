@@ -23,15 +23,27 @@ export default class Desktop extends React.Component {
         style={this.props.styles}
         onClick={this.handleClick.bind(this)}>
        <div className={classNames("menu")}>
-        <div className={classNames("menu-li")}>
+        <div 
+          className={classNames("menu-li")}
+          onClick={()=>{
+            history.go('-1');
+          }}>
           <div className={classNames("menu-li-left")}></div>
           <div className={classNames("menu-li-right")}>返回</div>
         </div>
-        <div className={classNames("menu-li")}>
+        <div 
+          className={classNames("menu-li")}
+          onClick={()=>{
+            history.go('1');
+          }}>
           <div className={classNames("menu-li-left")}></div>
           <div className={classNames("menu-li-right")}>前进</div>
         </div>
-        <div className={classNames("menu-li")}>
+        <div
+          className={classNames("menu-li")}
+          onClick={()=>{
+            location.reload();
+          }}>
           <div className={classNames("menu-li-left")}></div>
           <div className={classNames("menu-li-right")}>重新加载</div>
         </div>

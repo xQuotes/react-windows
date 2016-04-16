@@ -2,14 +2,9 @@ import React, { PropTypes } from 'react';
 import { DragSource, DragDropContext } from 'react-dnd';
 import classNames from 'classnames';
 
-import ImgIcon from './images/Img';
+import Window from './Window'
 
 import deskIconStyle from './style/DeskIcon.less';
-
-var deskIconImgDivStyle = {
-  cursor: 'move',
-  backgroundImage: 'url(' + ImgIcon.DesktopIcon + ')'
-}
 
 const deskIconSource = {
   beginDrag(props) {
@@ -23,36 +18,49 @@ const deskIconSource = {
   isDragging: monitor.isDragging()
 }))
 export default class DeskIcon extends React.Component {  
-  static propTypes = {
-    connectDragSource: PropTypes.func.isRequired,
-    isDragging: PropTypes.bool.isRequired
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowDisplay: false
+    }
+  }
+  iconDoubleClick(event) {
+    this.setState({
+      windowDisplay: true
+    })
+  }
   render() { 
-    const { hideSourceOnDrag, left, top, title, connectDragSource, isDragging } = this.props;
-    if (isDragging && hideSourceOnDrag) {
+    const { ...drops } = this.props;
+    const {windowDisplay} = this.state;
+    if (drops.isDragging && drops.hideSourceOnDrag) {
       return null;
     }
-    return connectDragSource(
-        <div
+    return (
+      <div>
+        { windowDisplay ? <Window windowDisplay={windowDisplay}/> : '' }
+        {drops.connectDragSource(<div
           className={classNames("desk-icon")}
           style={{
-            opacity: isDragging ? 0.5 : 1,
-            cursor: 'move',
-            left,
-            top
-          }}>
+            opacity: drops.isDragging ? 0.5 : 1,
+            left: drops.left,
+            top: drops.top
+          }}
+          onDoubleClick={this.iconDoubleClick.bind(this)}>
           <div
             className={classNames("desk-icon-bg")}>
           </div>
           <div
             className={classNames("desk-icon-img icon-img")}
-            style={deskIconImgDivStyle}>
+            style={{
+              backgroundImage: 'url(' + drops.icon + ')'
+            }}>
           </div>
           <div
             className={classNames("desk-icon-text")}>
-            {title}
+            {drops.title}
           </div>
-        </div>
+        </div>)}
+      </div>
       )
   }
 }
