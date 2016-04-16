@@ -1,5 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { PropTypes } from 'react';
+import { DragSource, DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import classNames from 'classnames';
 
 import ImgIcon from './images/Img';
@@ -7,60 +8,36 @@ import ImgIcon from './images/Img';
 import deskIconStyle from './style/DeskIcon.less';
 
 var deskIconImgDivStyle = {
+  cursor: 'move',
   backgroundImage: 'url(' + ImgIcon.DesktopIcon + ')'
 }
 
-export default class DeskIcon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isDrog: false
-    }
+const deskIconSource = {
+  beginDrag(props) {
+    const { id, left, top } = props;
+    return { id, left, top };
   }
-  handleClick(event) {
-    event.stopPropagation();
-  }
-  handleDrag(event) {
+};
 
-    var that = ReactDOM.findDOMNode(this);
-    var x = (event.pageX || event.clientX) - that.offsetLeft;
-    var y = (event.pageY || event.clientY) - that.offsetTop;
-    
-    console.log(x + ',' + y);
-
-    this.setState({
-      isDrog: true,
-      currentX: x,
-      currentY: y
-    });
-  }
-  handleDragMove(event) {
-    if(!this.state.isDrog) return;
-    var cursorX = (event.pageX || event.clientX) - this.state.currentX;
-    var cursorY = (event.pageY || event.clientY) - this.state.currentY;
-    
-    console.log(cursorX + "," + cursorY);
-    this.setState({
-      deskIconDragStyle: {
-        top: cursorX + 'px',
-        left: cursorY + 'px'
-      }
-    });
-  }
-  handleDragEnd(event) {
-    this.setState({
-      isDrog: false
-    });
-  }
-  render() {
-    return (
+@DragDropContext(HTML5Backend)
+@DragSource('DeskIcon', deskIconSource, (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging()
+}))
+export default class DeskIcon extends React.Component {  
+  static propTypes = {
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired
+  };
+  render() { 
+    const { connectDragSource, isDragging } = this.props;
+    return connectDragSource(
         <div
           className={classNames("desk-icon")}
-          onClick={this.handleClick.bind(this)}
-          onMouseDown={this.handleDrag.bind(this)}
-          onDragOver={this.handleDragMove.bind(this)}
-          onMouseUp={this.handleDragEnd.bind(this)}
-          style={this.state.deskIconDragStyle}>
+          style={{
+            opacity: isDragging ? 0.5 : 1,
+            cursor: 'move'
+          }}>
           <div
             className={classNames("desk-icon-bg")}>
           </div>
