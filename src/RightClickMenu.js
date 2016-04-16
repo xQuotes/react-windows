@@ -5,11 +5,23 @@ import ImgIcon from './images/Img';
 
 import rightClickMenu from './style/rightClickMenu.less';
 
+export const MenuWidth = 210;
+export const MenuHeight = 158;
+
 export default class Desktop extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  handleClick(event) {
+    // 防止冒泡
+    event.stopPropagation();
+  }
   render() {
     return (
       <div
-        className={classNames("right-click-menu")}>
+        className={classNames("right-click-menu")}
+        style={this.props.styles}
+        onClick={this.handleClick.bind(this)}>
        <div className={classNames("menu")}>
         <div className={classNames("menu-li")}>
           <div className={classNames("menu-li-left")}></div>
