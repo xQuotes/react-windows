@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { DragSource, DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import classNames from 'classnames';
 
 import ImgIcon from './images/Img';
@@ -19,7 +18,6 @@ const deskIconSource = {
   }
 };
 
-@DragDropContext(HTML5Backend)
 @DragSource('DeskIcon', deskIconSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging()
@@ -30,13 +28,18 @@ export default class DeskIcon extends React.Component {
     isDragging: PropTypes.bool.isRequired
   };
   render() { 
-    const { connectDragSource, isDragging } = this.props;
+    const { hideSourceOnDrag, left, top, title, connectDragSource, isDragging } = this.props;
+    if (isDragging && hideSourceOnDrag) {
+      return null;
+    }
     return connectDragSource(
         <div
           className={classNames("desk-icon")}
           style={{
             opacity: isDragging ? 0.5 : 1,
-            cursor: 'move'
+            cursor: 'move',
+            left,
+            top
           }}>
           <div
             className={classNames("desk-icon-bg")}>
@@ -47,7 +50,7 @@ export default class DeskIcon extends React.Component {
           </div>
           <div
             className={classNames("desk-icon-text")}>
-            桌面
+            {title}
           </div>
         </div>
       )

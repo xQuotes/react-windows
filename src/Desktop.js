@@ -1,6 +1,9 @@
 import React from 'react';
+import update from 'react/lib/update';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
+import { DropTarget, DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 import ImgIcon from './images/Img';
 
@@ -15,14 +18,47 @@ import Dos from './Dos';
 
 import desktopStyle from './style/desktop.less';
 
+
+const boxTarget = {
+  drop(props, monitor, component) {
+    const item = monitor.getItem();
+    const delta = monitor.getDifferenceFromInitialOffset();
+    const left = Math.round(item.left + delta.x);
+    const top = Math.round(item.top + delta.y);
+
+    component.moveBox(item.id, left, top);
+  }
+};
+
+@DragDropContext(HTML5Backend)
+@DropTarget('DeskIcon', boxTarget, connect => ({
+  connectDropTarget: connect.dropTarget()
+}))
 export default class Desktop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       windowShowStyle: {
         opacity: 0
+      },
+      boxes: {
+        'a': { top: 20, left: 80, title: '桌面' },
+        'b': { top: 180, left: 20, title: '垃圾桶' }
       }
     }
+  }
+
+  moveBox(id, left, top) {
+    this.setState(update(this.state, {
+      boxes: {
+        [id]: {
+          $merge: {
+            left: left,
+            top: top
+          }
+        }
+      }
+    }));
   }
   rightClick(event) {
     if (!event) event = window.event;
@@ -52,6 +88,8 @@ export default class Desktop extends React.Component {
     });
   }
   render() {
+    const { connectDropTarget } = this.props;
+    const { boxes} = this.state;
     return (
       <div
         className={classNames("desktop bg-img")}
@@ -62,7 +100,21 @@ export default class Desktop extends React.Component {
        <div
         className={classNames("main")}
         ref="deskMain">
-        <DeskIcon />
+
+        {Object.keys(boxes).map(key => {
+          const { left, top, title } = boxes[key];
+          return (
+            <DeskIcon key={key}
+                 id={key}
+                 left={left}
+                 top={top}
+                 title={title}
+                 hideSourceOnDrag={true}>
+              
+            </DeskIcon>
+          );
+        })}
+
         <RightClickMenu styles={this.state.windowShowStyle}/>
        </div>
        <Footer />
