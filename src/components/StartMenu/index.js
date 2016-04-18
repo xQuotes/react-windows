@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-
 import ImgIcon from '../../images/Img';
 
 import startMenu from '../../style/startMenu.less';

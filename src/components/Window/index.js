@@ -1,38 +1,29 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from 'react'
+import classNames from 'classnames'
+import {
+  connect
+} from 'react-redux'
 
-import ImgIcon from '../../images/Img';
+import ImgIcon from '../../images/Img'
 
-import windowStyle from '../../style/window.less';
+import { hideWindow } from '../Window/actions'
+import windowStyle from '../../style/window.less'
 
+@connect((state) => ({
+  win: state.win
+}))
 export default class Window extends React.Component {
   constructor(props) {
-    super(props);
-    const {windowDisplay} = this.props;
-    this.state = {
-      windowDisplay: windowDisplay
-    }
-  }
-
-  componentWillReceiveProps() {
-    this.setState({
-      windowDisplay: this.props.windowDisplay
-    })
+    super(props)
   }
   closeClick(event) {
-    this.setState({
-      windowDisplay: false
-    })
+    const { dispatch } = this.props
+    dispatch(hideWindow())
   }
   render() {
-    console.log(1)
-    const { windowDisplay } = this.state;
     return (
       <div
-        className={classNames("window")}
-        style={{
-          display: windowDisplay ? 'block' : 'none'
-        }}>
+        className={classNames("window")}>
         <div className={classNames("w-header")}>
           <div className={classNames("w-header-title")}>
             Ifeng DesktopUI

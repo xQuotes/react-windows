@@ -1,1 +1,1 @@
-export const deskIcon = 'deskIcon'
+export const deskIconConst = 'deskIcon'

@@ -29,8 +29,11 @@ import Footer from '../components/Footer/index'
 import Basejs from '../Base';
 import DevTools from './DevTools'
 
-@connect((state) => ({}))
+@connect(() => ({}))
 export default class Root extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     const { store } = this.props
     const history = syncHistoryWithStore(
