@@ -1,14 +1,14 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from 'react'
+import classNames from 'classnames'
 
-import ImgIcon from './images/Img';
+import ImgIcon from '../../images/Img'
 
-import rightClickMenu from './style/rightClickMenu.less';
+import rightClickMenu from '../../style/rightClickMenu.less'
 
 export const MenuWidth = 210;
 export const MenuHeight = 158;
 
-export default class Desktop extends React.Component {
+export default class RightClickMenu extends React.Component {
   constructor(props) {
     super(props);
   }

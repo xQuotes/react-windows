@@ -8,7 +8,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: [
         'webpack/hot/dev-server',
-        path.resolve(__dirname, 'app.js')
+        path.resolve(__dirname, './src/app.js')
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),

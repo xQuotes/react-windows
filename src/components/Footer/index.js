@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import ImgIcon from './images/Img';
+import ImgIcon from '../../images/Img';
 
-import StartMenu from './StartMenu';
+import StartMenu from '../StartMenu/index';
 
-import footerStyle from './style/footer.less';
+import footerStyle from '../../style/footer.less';
 
 export default class Footer extends React.Component {
   constructor(props) {
