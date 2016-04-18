@@ -20,6 +20,6 @@ export default createReducer(initialState, {
     display: false
   }),
   [WINDOW_MOVE]: (state, action) => merge({
-    widowData: action.widowData
+    datas: action.datas
   })
 })
