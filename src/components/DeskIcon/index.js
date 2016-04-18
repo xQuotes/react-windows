@@ -9,7 +9,7 @@ import { DragSource, DragDropContext } from 'react-dnd'
 import { showWindow } from '../Window/actions'
 import Window from '../Window/index'
 
-import deskIconStyle from '../../style/DeskIcon.less'
+import deskIconStyle from '../../style/deskIcon.less'
 import { deskIconConst } from './constants'
 const deskIconSource = {
   beginDrag(props) {
