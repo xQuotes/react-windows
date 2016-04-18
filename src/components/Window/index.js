@@ -4,10 +4,26 @@ import {
   connect
 } from 'react-redux'
 
+import { DragSource, DragDropContext } from 'react-dnd'
+
 import ImgIcon from '../../images/Img'
 
 import { hideWindow } from '../Window/actions'
 import windowStyle from '../../style/window.less'
+
+import { windowConst } from './constants'
+
+const windowSource = {
+  beginDrag(props) {
+    const { id, left, top } = props
+    return { id, left, top }
+  }
+}
+@DragSource(windowConst, windowSource, (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging()
+}))
+
 
 @connect((state) => ({
   win: state.win
@@ -21,10 +37,21 @@ export default class Window extends React.Component {
     dispatch(hideWindow())
   }
   render() {
-    return (
+    const { ...drops } = this.props
+    const { win } = this.props
+    if (drops.isDragging && drops.hideSourceOnDrag ) {
+      return null;
+    }
+    return {drops.connectDragSource(
       <div
         className={classNames("window")}>
-        <div className={classNames("w-header")}>
+        <div
+          className={classNames("w-header")}
+          style={{
+            opacity: drops.isDragging ? 0.5 : 1,
+            left: drops.left,
+            top: drops.top
+          }}>
           <div className={classNames("w-header-title")}>
             Ifeng DesktopUI
           </div>
@@ -39,6 +66,6 @@ export default class Window extends React.Component {
        <div className={classNames("w-container")}>
        </div>
       </div>
-      )
+      )}
   }
 }

@@ -18,10 +18,11 @@ export function hideWindow() {
   }
 }
 
-export function moveWindow() {
+export function moveWindow(datas) {
   return (dispatch, getState) => {
     dispatch({
-      type: WINDOW_MOVE
+      type: WINDOW_MOVE,
+      datas: datas
     })
   }
 }
