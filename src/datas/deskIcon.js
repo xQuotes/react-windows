@@ -2,18 +2,21 @@ import ImgIcon from '../images/Img';
 
 export default {
   'desktop': {
+    id: 'desktop',
     top: 40,
     left: 30,
     title: '桌面',
     icon: ImgIcon.DesktopIcon
   },
-  'trash': {
+  'dos': {
+    id: 'dos',
     top: 116,
     left: 30,
     title: '命令行',
     icon: ImgIcon.DosIcon
   },
-  'chrome': {
+  'browser': {
+    id: 'browser',
     top: 192,
     left: 30,
     title: '浏览器',

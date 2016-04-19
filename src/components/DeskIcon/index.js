@@ -29,19 +29,25 @@ export default class DeskIcon extends React.Component {
   constructor(props) {
     super(props);
   }
-  iconDoubleClick(event) {
+  iconDoubleClick(id) {
     const { dispatch } = this.props;
-    dispatch(showWindow())
+    dispatch(showWindow({
+      id: id
+    }))
   }
   render() { 
     const { ...drops } = this.props;
     const { win } = this.props;
+
     if (drops.isDragging && drops.hideSourceOnDrag) {
       return null;
     }
     return (
       <div>
-        { win.display ? <Window /> : '' }
+        { win.display ? <Window 
+                          id={win.datas.id}
+                          left={win.datas.left}
+                          top={win.datas.top}/> : '' }
         {drops.connectDragSource(<div
           className={classNames("desk-icon")}
           style={{
@@ -49,7 +55,7 @@ export default class DeskIcon extends React.Component {
             left: drops.left,
             top: drops.top
           }}
-          onDoubleClick={this.iconDoubleClick.bind(this)}>
+          onDoubleClick={this.iconDoubleClick.bind(this, drops.id)}>
           <div
             className={classNames("desk-icon-bg")}>
           </div>

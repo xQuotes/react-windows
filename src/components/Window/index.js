@@ -21,6 +21,7 @@ const windowSource = {
 }
 @DragSource(windowConst, windowSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
+  connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging()
 }))
 
@@ -31,27 +32,27 @@ const windowSource = {
 export default class Window extends React.Component {
   constructor(props) {
     super(props)
-  }
+  } 
   closeClick(event) {
-    const { dispatch } = this.props
+    const { dispatch } = this.props;
     dispatch(hideWindow())
   }
   render() {
-    const { ...drops } = this.props
-    const { win } = this.props
-    if (drops.isDragging && drops.hideSourceOnDrag ) {
+    const { isDragging, hideSourceOnDrag } = this.props;
+    const { win, connectDragSource, connectDragPreview } = this.props
+
+    if (isDragging && hideSourceOnDrag ) {
       return null;
     }
-    return {drops.connectDragSource(
-      <div
-        className={classNames("window")}>
-        <div
-          className={classNames("w-header")}
-          style={{
-            opacity: drops.isDragging ? 0.5 : 1,
-            left: drops.left,
-            top: drops.top
-          }}>
+    return connectDragPreview(
+      <div className={classNames("window")}
+        style={{
+          opacity: isDragging ? 0.5 : 1,
+          left: win.datas.left,
+          top: win.datas.top
+        }}>
+        {connectDragSource(<div
+          className={classNames("w-header")}>
           <div className={classNames("w-header-title")}>
             Ifeng DesktopUI
           </div>
@@ -63,9 +64,9 @@ export default class Window extends React.Component {
               onClick={this.closeClick.bind(this)}>x</div>
           </div>
         </div>
-       <div className={classNames("w-container")}>
-       </div>
-      </div>
-      )}
+        )}
+         <div className={classNames("w-container")}>
+         </div>
+      </div>)
   }
 }

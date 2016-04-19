@@ -1,5 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
+import {
+  connect
+} from 'react-redux'
 
 import update from 'react/lib/update'
 import { DropTarget, DragDropContext } from 'react-dnd'
@@ -14,16 +17,9 @@ import RightClickMenu, {
   MenuHeight
 } from '../RightClickMenu/index'
 
-const deskIconTarget = {
-  drop(props, monitor, component) {
-    const item = monitor.getItem();
-    const delta = monitor.getDifferenceFromInitialOffset();
-    const left = Math.round(item.left + delta.x);
-    const top = Math.round(item.top + delta.y);
-    
-    component.moveDeskIcon(item.id, left, top);
-  }
-};
+import { moveWindow } from '../Window/actions'
+
+import { windowConst } from '../Window/constants'
 
 const windowTarget = {
   drop(props, monitor, component) {
@@ -31,16 +27,18 @@ const windowTarget = {
     const delta = monitor.getDifferenceFromInitialOffset();
     const left = Math.round(item.left + delta.x);
     const top = Math.round(item.top + delta.y);
-    
-    component.moveWindow(item.id, left, top);
+    props.dispatch(moveWindow({
+      id: item.id,
+      left: left,
+      top: top
+    }));
+    return {};
   }
 };
 
-import { deskIconConst } from '../DeskIcon/constants'
-import { windowConst } from '../Window/constants'
-
+@connect()
 @DragDropContext(HTML5Backend)
-@DropTarget(deskIconConst, deskIconTarget, connect => ({
+@DropTarget(windowConst, windowTarget, connect => ({
   connectDropTarget: connect.dropTarget()
 }))
 export default class Desktop extends React.Component {
@@ -63,10 +61,6 @@ export default class Desktop extends React.Component {
         }
       }
     }));
-  }
-  //移动窗口
-  moveWindow(id, left, top) {
-    
   }
   //右键
   rightClick(event) {

@@ -1,5 +1,4 @@
 import { createReducer } from '../../common/js/Tools'
-import { merge } from 'lodash'
 
 import {
   WINDOW_SHOW,
@@ -9,17 +8,25 @@ import {
 
 let initialState = {
   display: false,
-  widowData: {}
+  datas: {
+    id: 'window',
+    top: 300,
+    left: 400
+  }
 }
 
 export default createReducer(initialState, {
-  [WINDOW_SHOW]: (state, action) => merge({
-    display: true
-  }),
-  [WINDOW_HIDE]: (state, action) => merge({
+  [WINDOW_SHOW]: (state, action) => {
+    return Object.assign({}, state, {
+      display: true,
+      datas: Object.assign({}, state.datas, action.datas)
+    })
+  },
+  [WINDOW_HIDE]: (state, action) => Object.assign({}, state, {
     display: false
   }),
-  [WINDOW_MOVE]: (state, action) => merge({
+  [WINDOW_MOVE]: (state, action) => Object.assign({}, state, {
+    display: true,
     datas: action.datas
   })
 })
