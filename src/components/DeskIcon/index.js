@@ -22,9 +22,7 @@ const deskIconSource = {
   isDragging: monitor.isDragging()
 }))
 
-@connect((state) => ({
-  win: state.win
-}))
+@connect((state) => ({}))
 export default class DeskIcon extends React.Component {  
   constructor(props) {
     super(props);
@@ -37,17 +35,12 @@ export default class DeskIcon extends React.Component {
   }
   render() { 
     const { ...drops } = this.props;
-    const { win } = this.props;
-
+    
     if (drops.isDragging && drops.hideSourceOnDrag) {
       return null;
     }
     return (
       <div>
-        { win.display ? <Window 
-                          id={win.datas.id}
-                          left={win.datas.left}
-                          top={win.datas.top}/> : '' }
         {drops.connectDragSource(<div
           className={classNames("desk-icon")}
           style={{
