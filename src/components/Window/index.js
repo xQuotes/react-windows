@@ -33,9 +33,11 @@ export default class Window extends React.Component {
   constructor(props) {
     super(props)
   } 
-  closeClick(event) {
+  closeClick(id) {
     const { dispatch } = this.props;
-    dispatch(hideWindow())
+    dispatch(hideWindow({
+      id: id
+    }))
   }
   render() {
     const { ...win } = this.props;
@@ -44,7 +46,7 @@ export default class Window extends React.Component {
     if (isDragging && hideSourceOnDrag ) {
       return null;
     }
-    console.log(win);
+
     return (
         connectDragPreview(
         <div className={classNames("window")}
@@ -63,7 +65,7 @@ export default class Window extends React.Component {
               <div className={classNames("w-header-max")}>口</div>
               <div
                 className={classNames("w-header-close")}
-                onClick={this.closeClick.bind(this)}>x</div>
+                onClick={this.closeClick.bind(this, win.id)}>x</div>
             </div>
           </div>
           )}

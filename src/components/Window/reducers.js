@@ -16,13 +16,11 @@ export default createReducer(initialState, {
     return Object.assign({}, state);
   },
   [WINDOW_HIDE]: (state, action) => {
-    console.log(action);
-    Object.assign({}, state, {
-      display: false
-    })
+    state.datas = state.datas.del(parseInt(action.datas.id));
+    return Object.assign({}, state);
   },
-  [WINDOW_MOVE]: (state, action) => Object.assign({}, state, {
-    display: true,
-    datas: Object.assign({}, state.datas, action.datas)
-  })
+  [WINDOW_MOVE]: (state, action) => {
+    state.datas[action.datas.id] = Object.assign({}, state.datas[action.datas.id], action.datas);
+    return Object.assign({}, state)
+  }
 })

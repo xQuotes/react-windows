@@ -25,6 +25,7 @@ import { windowConst } from '../Window/constants'
 const windowTarget = {
   drop(props, monitor, component) {
     const item = monitor.getItem();
+    
     const delta = monitor.getDifferenceFromInitialOffset();
     const left = Math.round(item.left + delta.x);
     const top = Math.round(item.top + delta.y);
@@ -95,7 +96,6 @@ export default class Desktop extends React.Component {
   render() {
     const { connectDropTarget } = this.props;
     const { win } = this.props;
-    console.log(win);
     const { menuShow, deskIcons } = this.state;
     return connectDropTarget(
       <div
@@ -103,7 +103,7 @@ export default class Desktop extends React.Component {
         onMouseUp={this.rightClick.bind(this)}
         onClick={this.handleClick.bind(this)}>
         <div className="menu">
-          {Object.keys(deskIcons).map(key => {
+          {!deskIcons ? '' : Object.keys(deskIcons).map(key => {
             const { left, top, icon, title } = deskIcons[key];
             return (
               <DeskIcon key={key}
@@ -116,7 +116,7 @@ export default class Desktop extends React.Component {
               </DeskIcon>
             );
           })}
-          {Object.keys(win.datas).map(key => {
+          {!win.datas ? '' : Object.keys(win.datas).map(key => {
             const { id, left, top, title } = win.datas[key];
             return (<Window key={key}
                    id={key}
