@@ -7,32 +7,20 @@ import {
 } from './actions'
 
 let initialState = {
-  'window1': {
-    display: true,
-    id: 'window1',
-    title: 'window1',
-    top: 400,
-    left: 300
-  },
-  'window2': {
-    display: true,
-    id: 'window2',
-    title: 'window2',
-    top: 300,
-    left: 400
-  }
+  datas: []
 }
 
 export default createReducer(initialState, {
   [WINDOW_SHOW]: (state, action) => {
-    state.datas[action.datas.id] = action.datas;
-    return Object.assign({}, state, {
-      datas: Object.assign({}, state.datas, action.datas)
+    state.datas.push(action.datas);
+    return Object.assign({}, state);
+  },
+  [WINDOW_HIDE]: (state, action) => {
+    console.log(action);
+    Object.assign({}, state, {
+      display: false
     })
   },
-  [WINDOW_HIDE]: (state, action) => Object.assign({}, state, {
-    display: false
-  }),
   [WINDOW_MOVE]: (state, action) => Object.assign({}, state, {
     display: true,
     datas: Object.assign({}, state.datas, action.datas)

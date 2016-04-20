@@ -44,9 +44,8 @@ export default class Window extends React.Component {
     if (isDragging && hideSourceOnDrag ) {
       return null;
     }
+    console.log(win);
     return (
-      <div>{Object.keys(win).map(key => {
-        const { id, left, top, title } = win[key];
         connectDragPreview(
         <div className={classNames("window")}
           style={{
@@ -71,7 +70,6 @@ export default class Window extends React.Component {
            <div className={classNames("w-container")}>
            </div>
         </div>
-        )}
-      }</div>)
+    ))
   }
 }

@@ -10,6 +10,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 
 import desktopStyle from '../../style/desktop.less'
 import DeskIcon from '../DeskIcon/index'
+import Window from '../Window/index'
 import deskIconDatas from '../../datas/deskIcon'
 
 import RightClickMenu, {
@@ -36,7 +37,9 @@ const windowTarget = {
   }
 };
 
-@connect()
+@connect((state) => ({
+  win: state.win
+}))
 @DragDropContext(HTML5Backend)
 @DropTarget(windowConst, windowTarget, connect => ({
   connectDropTarget: connect.dropTarget()
@@ -91,7 +94,8 @@ export default class Desktop extends React.Component {
   }
   render() {
     const { connectDropTarget } = this.props;
-    const { display } = this.props;
+    const { win } = this.props;
+    console.log(win);
     const { menuShow, deskIcons } = this.state;
     return connectDropTarget(
       <div
@@ -111,6 +115,15 @@ export default class Desktop extends React.Component {
                    hideSourceOnDrag={true}>
               </DeskIcon>
             );
+          })}
+          {Object.keys(win.datas).map(key => {
+            const { id, left, top, title } = win.datas[key];
+            return (<Window key={key}
+                   id={key}
+                   left={left}
+                   top={top}
+                   title={title}
+                   hideSourceOnDrag={true}/>);
           })}
         </div>
         {menuShow ? <RightClickMenu styles={this.state.menuShowStyle}/> : '' }
