@@ -1,11 +1,9 @@
-import ImgIcon from '../images/Img';
+import ImgIcon from '../images/Img'
 
 import { AppDOM } from '../constants/index'
 
 export const DesktopWidth = AppDOM.offsetWidth
 export const DesktopHeight = AppDOM.offsetHeight
-
-console.log(DesktopHeight)
 
 export default {
   'desktop': {
@@ -15,24 +13,24 @@ export default {
     title: '桌面',
     top: (DesktopHeight - 400)/2,
     left: (DesktopWidth - 600)/2,
-    zIndex: 99
+    icon: ImgIcon.DesktopIcon
   },
   'dos': {
     id: 'dos',
     width: 600,
     height: 400,
     title: '命令行',
-    top: (DesktopHeight - 400)/2,
-    left: (DesktopWidth - 600)/2,
-    zIndex: 98
+    top: (DesktopHeight - 400 + 20)/2,
+    left: (DesktopWidth - 600 + 40)/2,
+    icon: ImgIcon.DosIcon
   },
   'browser': {
     id: 'browser',
     width: 600,
     height: 400,
     title: '浏览器',
-    top: (DesktopHeight - 400)/2,
-    left: (DesktopWidth - 600)/2,
-    zIndex: 97
+    top: (DesktopHeight - 400 + 40)/2,
+    left: (DesktopWidth - 600 + 80)/2,
+    icon: ImgIcon.ChromeIcon
   }
 }

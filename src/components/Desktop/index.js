@@ -117,13 +117,17 @@ export default class Desktop extends React.Component {
             );
           })}
           {!win.datas ? '' : Object.keys(win.datas).map(key => {
-            const { id, left, top, title } = win.datas[key];
-            return (<Window key={key}
-                   id={key}
-                   left={left}
-                   top={top}
-                   title={title}
-                   hideSourceOnDrag={true}/>);
+            if (!!win.datas[key]) {
+              const { id, left, top, title } = win.datas[key];
+              return (<Window key={key}
+                     id={key}
+                     left={left}
+                     top={top}
+                     title={title}
+                     hideSourceOnDrag={true}/>);
+            } else {
+              return ''
+            }
           })}
         </div>
         {menuShow ? <RightClickMenu styles={this.state.menuShowStyle}/> : '' }

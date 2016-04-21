@@ -22,6 +22,7 @@
   "author": "FuYin",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.11.1",
     "classnames": "^2.2.3",
     "gulp": "^3.9.1",
     "normalize.css": "^4.0.0",

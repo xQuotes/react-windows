@@ -8,6 +8,8 @@ export function createReducer (initialState, handlers) {
     }
 }
 
+import _ from 'lodash'
+
 Array.prototype.del = function(n) {　
 	//n表示第几项，从0开始算起。
   //prototype为对象原型，注意这里为对象增加自定义方法的方法。
