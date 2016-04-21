@@ -6,7 +6,10 @@ import {
 
 import { DragSource, DragDropContext } from 'react-dnd'
 
-import { showWindow } from '../Window/actions'
+import {
+  showWindow,
+  displayWindow
+} from '../Window/actions'
 import Window from '../Window/index'
 
 import deskIconStyle from '../../style/deskIcon.less'
@@ -33,6 +36,13 @@ export default class DeskIcon extends React.Component {
       id: id
     }))
   }
+  iconHandleClick(id) {
+    const { dispatch } = this.props;
+    dispatch(displayWindow({
+      id: id,
+      display: 'flex'
+    }))
+  }
   render() { 
     const { ...drops } = this.props;
     
@@ -48,6 +58,7 @@ export default class DeskIcon extends React.Component {
             left: drops.left,
             top: drops.top
           }}
+          onClick={this.iconHandleClick.bind(this, drops.id)}
           onDoubleClick={this.iconDoubleClick.bind(this, drops.id)}>
           <div
             className={classNames("desk-icon-bg")}>

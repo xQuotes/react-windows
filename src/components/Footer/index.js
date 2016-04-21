@@ -49,12 +49,16 @@ export default class Footer extends React.Component {
           </div>
           <div className={classNames("footer-center")}>
             {!win.datas ? '' : Object.keys(win.datas).map(key => {
-              const { id, icon, title } = win.datas[key];
-              return (<FooterIcon
-                      key={id}
-                      id={key}
-                      title={title}
-                      icon={icon}/>);
+              if(!win.datas[key]){
+                return '';
+              } else {
+                const { id, icon, title } = win.datas[key];
+                return (<FooterIcon
+                        key={id}
+                        id={key}
+                        title={title}
+                        icon={icon}/>);
+              }
             })}
           </div>
           <div

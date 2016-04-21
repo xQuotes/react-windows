@@ -8,7 +8,12 @@ import { DragSource, DragDropContext } from 'react-dnd'
 
 import ImgIcon from '../../images/Img'
 
-import { upWindow, hideWindow } from '../Window/actions'
+import {
+  upWindow,
+  hideWindow,
+  maxWindow,
+  minWindow
+} from '../Window/actions'
 import windowStyle from '../../style/window.less'
 
 import { windowConst } from './constants'
@@ -39,7 +44,24 @@ export default class Window extends React.Component {
       id: id
     }))
   }
-  handleClick(id) {
+  minClick(id) {
+    const { dispatch } = this.props;
+    dispatch(minWindow({
+      id: id,
+      display: 'none'
+    }))
+  }
+  maxClick(id, preData) {
+    const { dispatch } = this.props;
+    dispatch(maxWindow({
+      id: id,
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%'
+    }, preData))
+  }
+  upClick(id) {
     const { dispatch } = this.props;
     dispatch(upWindow({
       id: id
@@ -58,18 +80,25 @@ export default class Window extends React.Component {
         <div className={classNames("window")}
           style={{
             opacity: isDragging ? 0.5 : 1,
+            display: win.display,
             left: win.left,
-            top: win.top
+            top: win.top,
+            width: win.width,
+            height: win.height
           }}
-          onClick={this.handleClick.bind(this, win.id)}>
+          onClick={this.upClick.bind(this, win.id)}>
           {connectDragSource(<div
             className={classNames("w-header")}>
             <div className={classNames("w-header-title")}>
               {win.title}
             </div>
             <div className={classNames("w-header-action")}>
-              <div className={classNames("w-header-min")}>-</div>
-              <div className={classNames("w-header-max")}>口</div>
+              <div
+                className={classNames("w-header-min")}
+                onClick={this.minClick.bind(this, win.id)}>-</div>
+              <div
+                className={classNames("w-header-max")}
+                onClick={this.maxClick.bind(this, win.id, win.preData)}>口</div>
               <div
                 className={classNames("w-header-close")}
                 onClick={this.closeClick.bind(this, win.id)}>x</div>

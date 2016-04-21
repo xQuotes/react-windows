@@ -11,6 +11,7 @@ export default {
     width: 600,
     height: 400,
     title: '桌面',
+    display: 'flex',
     top: (DesktopHeight - 400)/2,
     left: (DesktopWidth - 600)/2,
     icon: ImgIcon.DesktopIcon
@@ -20,6 +21,7 @@ export default {
     width: 600,
     height: 400,
     title: '命令行',
+    display: 'flex',
     top: (DesktopHeight - 400 + 20)/2,
     left: (DesktopWidth - 600 + 40)/2,
     icon: ImgIcon.DosIcon
@@ -29,6 +31,7 @@ export default {
     width: 600,
     height: 400,
     title: '浏览器',
+    display: 'flex',
     top: (DesktopHeight - 400 + 40)/2,
     left: (DesktopWidth - 600 + 80)/2,
     icon: ImgIcon.ChromeIcon

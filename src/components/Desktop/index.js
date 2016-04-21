@@ -97,6 +97,7 @@ export default class Desktop extends React.Component {
     const { connectDropTarget } = this.props;
     const { win } = this.props;
     const { menuShow, deskIcons } = this.state;
+
     return connectDropTarget(
       <div
         className={classNames('desktop')}
@@ -118,13 +119,19 @@ export default class Desktop extends React.Component {
           })}
           {!win.datas ? '' : Object.keys(win.datas).map(key => {
             if (!!win.datas[key]) {
-              const { id, left, top, title } = win.datas[key];
-              return (<Window key={key}
-                     id={key}
-                     left={left}
-                     top={top}
-                     title={title}
-                     hideSourceOnDrag={true}/>);
+              const { id, left, top, title, width, height, display, preData } = win.datas[key];
+
+              return (<Window
+                      key={key}
+                      id={key}
+                      left={left}
+                      top={top}
+                      title={title}
+                      width={width}
+                      height={height}
+                      display={display}
+                      preData={!!preData}
+                      hideSourceOnDrag={true}/>);
             } else {
               return ''
             }
