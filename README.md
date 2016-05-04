@@ -1,19 +1,20 @@
 #metroDesktop
 
 ## 基本功能
-右键弹窗
-拖拽弹窗
-模拟浏览器
+
+- 右键弹窗
+- 拖拽弹窗
+- 模拟浏览器
  
-列表
-表单
+- 列表
+- 表单
 
 ## `metro` 样式的前端桌面框架
 
 ### 需要实现的功能
 
-拖拽
-弹窗
+- 拖拽
+- 弹窗
 
 
 参考：
@@ -30,7 +31,7 @@
 
 编译 `node server`
 
-
+```
 ---
 重复 mount 一个组件
 /* 第一次 render */
@@ -56,3 +57,4 @@ render
 componentDidMount  
 /* unmount */
 componentWillUnmount  
+```
