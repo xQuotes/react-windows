@@ -70,7 +70,7 @@ export default class Window extends React.Component {
   render() {
     const { ...win } = this.props;
     const { isDragging, hideSourceOnDrag, connectDragSource, connectDragPreview } = this.props
-
+    console.log(win);
     if (isDragging && hideSourceOnDrag ) {
       return null;
     }
@@ -106,6 +106,12 @@ export default class Window extends React.Component {
           </div>
           )}
            <div className={classNames("w-container")}>
+            <div
+              className={classNames("w-container-main")}>
+              <iframe src={win.url} width="100%" height="100%"> 
+              但是您的浏览器不支持iframe，请升级您的浏览器以便正常访问。 
+              </iframe>
+            </div> 
            </div>
         </div>
     ))

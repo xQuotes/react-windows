@@ -25,6 +25,7 @@
 - [WebWindowSystem](http://www.pengyaou.com/LegendsZ/eg/WebWindowSystem/)
 - [desktop](http://desktop.sonspring.com/)
 
+- [python](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0014023534049359c3ce60cb680419ba423b5b704baac0c000)
 ---
 
 编译 `node server`

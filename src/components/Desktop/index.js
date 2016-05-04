@@ -119,7 +119,7 @@ export default class Desktop extends React.Component {
           })}
           {!win.datas ? '' : Object.keys(win.datas).map(key => {
             if (!!win.datas[key]) {
-              const { id, left, top, title, width, height, display, preData } = win.datas[key];
+              const { id, left, top, title, width, height, display, preData, url } = win.datas[key];
 
               return (<Window
                       key={key}
@@ -131,6 +131,7 @@ export default class Desktop extends React.Component {
                       height={height}
                       display={display}
                       preData={!!preData}
+                      url={url}
                       hideSourceOnDrag={true}/>);
             } else {
               return ''
