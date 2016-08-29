@@ -33,28 +33,3 @@
 
 ```
 ---
-重复 mount 一个组件
-/* 第一次 render */
-getDefaultProps  
-getInitialState  
-componentWillMount  
-render  
-componentDidMount  
-/* 第二次 render */
-componentWillReceiveProps  
-shouldComponentUpdate  
-componentWillUpdate  
-render  
-componentDidUpdate  
-
----
-从 mount 到 unmount
-/* mount */
-getDefaultProps  
-getInitialState  
-componentWillMount  
-render  
-componentDidMount  
-/* unmount */
-componentWillUnmount  
-```

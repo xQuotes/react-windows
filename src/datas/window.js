@@ -39,15 +39,15 @@ export default {
     icon: ImgIcon.ChromeIcon,
     url: ''
   },
-  'ifos': {
-    id: 'ifos',
+  'baidu': {
+    id: 'baidu',
     width: 600,
     height: 400,
-    title: 'IFOS',
+    title: '百度',
     display: 'flex',
     top: (DesktopHeight - 400 + 60)/2,
     left: (DesktopWidth - 600 + 120)/2,
-    icon: ImgIcon.IfosIcon,
-    url: 'http://ifos.ifengidc.com/'
+    icon: ImgIcon.BaiduIcon,
+    url: 'https://www.baidu.com/'
   }
 }

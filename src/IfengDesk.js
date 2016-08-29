@@ -3,7 +3,7 @@
 import React from 'react';
 
 if (!React) {
-  throw new Error('IfengDesk requires React.');
+  throw new Error('XQDesk requires React.');
 }
 
 import Desktop from './Desktop';
@@ -16,7 +16,7 @@ import StartMenu from './StartMenu';
 import Window from './Window';
 import Dos from './Dos';
 
-const IfengDesk = {
+const XQDesk = {
   VERSION: '__VERSION__',
   
   Desktop: Desktop,
@@ -31,4 +31,4 @@ const IfengDesk = {
   Dos: Dos
 }
 
-export default IfengDesk;
+export default XQDesk;

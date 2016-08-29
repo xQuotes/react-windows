@@ -35,7 +35,7 @@ export default class Window extends React.Component {
         }}>
         <div className={classNames("w-header")}>
           <div className={classNames("w-header-title")}>
-            Ifeng DesktopUI
+            XQDesktopUI
           </div>
           <div className={classNames("w-header-action")}>
             <div className={classNames("w-header-min")}>-</div>

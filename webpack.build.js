@@ -2,7 +2,7 @@ export default {
   output: {
     library: 'app',
     libraryTarget: 'umd',
-    filename: 'ifeng.desktopUI.js'
+    filename: 'xq.desktopUI.js'
   },
   externals: [
     {

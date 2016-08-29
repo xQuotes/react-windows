@@ -13,7 +13,7 @@ export default class Dos extends React.Component {
         className={classNames("window")}>
         <div className={classNames("w-header")}>
           <div className={classNames("w-header-title")}>
-            Ifeng DesktopUI
+            XQDesktopUI
           </div>
           <div className={classNames("w-header-action")}>
             <div className={classNames("w-header-min")}>-</div>

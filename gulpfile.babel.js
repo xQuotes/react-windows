@@ -26,8 +26,8 @@ const paths = {
 const buildDate = $.util.date(Date.now(), 'isoDateTime');
 const banner = [
   '/*! <%= pkg.title %> v<%= pkg.version %>',
-  'by ifeng IDC',
-  '(c) ' + $.util.date(Date.now(), 'UTC:yyyy') + ' ifeng, Inc.',
+  'by FuGardenia',
+  '(c) ' + $.util.date(Date.now(), 'UTC:yyyy') + ' FuGardenia, Inc.',
   'Licensed under <%= pkg.license %>',
   buildDate + ' */\n'
 ].join(' | ');

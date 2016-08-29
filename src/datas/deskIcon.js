@@ -22,11 +22,11 @@ export default {
     title: '浏览器',
     icon: ImgIcon.ChromeIcon
   },
-  'ifos': {
-    id: 'ifos',
+  'baidu': {
+    id: 'baidu',
     top: 40 + 76*3,
     left: 30,
-    title: 'IFOS',
-    icon: ImgIcon.IfosIcon
+    title: '百度',
+    icon: ImgIcon.BaiduIcon
   }
 }
