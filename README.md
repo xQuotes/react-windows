@@ -2,7 +2,7 @@
 
 ## React-redux-starter-kit
 
-![desktop](https://raw.githubusercontent.com/xQuotes/react-windows/admin/src/images/desktop.png)
+![desktop](https://raw.githubusercontent.com/xQuotes/react-windows/master/src/images/desktop.png)
 
 ## Requirements
 
