@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import ImgIcon from './images/Img';
+import ImgIcon from '../../images/Img';
 
-import windowStyle from './style/window.less';
-import dosStyle from './style/dos.less';
+import windowStyle from '../../style/window.less';
+import dosStyle from '../../style/dos.less';
 
 export default class Dos extends React.Component {
   render() {

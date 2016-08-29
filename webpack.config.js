@@ -8,12 +8,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: [
         'webpack/hot/dev-server',
-        path.resolve(__dirname, 'app.js')
+        path.resolve(__dirname, './src/app.js')
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        chunkFilename: "[chunkhash].[id].ifeng.desktopUI.js",
-        filename: "ifeng.desktopUI.js"
+        chunkFilename: "[chunkhash].[id].xq.desktopUI.js",
+        filename: "xq.desktopUI.js"
     },
     module: {
         loaders: [
@@ -58,7 +58,7 @@ module.exports = {
       new  WebpackMd5Hash(),
       new webpack.NoErrorsPlugin(),
       new HtmlWebpackPlugin({
-        title: 'Ifeng DesktopUI',
+        title: 'XQDesktopUI',
         template: 'index.ejs'
       })
       // new TransferWebpackPlugin([

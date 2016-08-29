@@ -1,10 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import ImgIcon from '../../images/Img';
 
-import ImgIcon from './images/Img';
-
-import startMenu from './style/startMenu.less';
+import startMenu from '../../style/startMenu.less';
 
 export default class StartMenu extends React.Component {
   render() {
