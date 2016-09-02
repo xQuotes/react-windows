@@ -42,10 +42,7 @@ export default class Root extends React.Component {
     return(
       <Provider store={store}>
         <div
-          className={classNames("root bg-img")}
-          style={{
-            backgroundImage: 'url(' + ImgIcon.BggroudImg + ')'
-          }}>
+          className={classNames("root")}>
           <Header />
           <div
             className={classNames("main")}

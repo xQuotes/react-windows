@@ -1,5 +1,5 @@
 import DesktopIcon from './icon/desktop.png';
-import BggroudImg from './bg/win.jpg';
+import BggroudImg from './bg/bg.jpg';
 import WinstartIcon from './icon/winstart.png';
 import SettingIcon from './icon/setting.ico';
 import DosIcon from './icon/dos.ico';

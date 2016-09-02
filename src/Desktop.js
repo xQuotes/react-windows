@@ -95,10 +95,7 @@ export default class Desktop extends React.Component {
     const { boxes } = this.state;
     return connectDropTarget(
       <div
-        className={classNames("desktop bg-img")}
-        style={{
-          backgroundImage: 'url(' + ImgIcon.BggroudImg + ')'
-        }}>
+        className={classNames("desktop")}>
 	     <Header />
        <div
         className={classNames("main")}
